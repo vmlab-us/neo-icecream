@@ -17,37 +17,51 @@
   <link rel="apple-touch-icon" href="/assets/logo/neoicecream-icon.png?v=20260521-8">
   <link rel="stylesheet" href="styles.css?v=20260521-7">
   <style>
-    .contact-hero-grid{grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-    .contact-copy{max-width:560px}
-    .contact-copy .page-lead{max-width:520px}
-    .contact-hero-card{display:flex;justify-content:center;align-items:center;min-height:360px;padding:34px}
-    .contact-hero-card img{max-height:330px;width:auto;object-fit:contain}
-    .contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:stretch}
-    .contact-panel,.contact-form-wrap{background:#fff;border:1px solid #d8ebf0;border-radius:28px;box-shadow:0 16px 40px rgba(42,42,42,.08);min-height:430px}
-    .contact-panel{padding:32px;display:flex;flex-direction:column;justify-content:flex-start}
-    .contact-form-wrap{padding:32px}
-    .contact-panel h3{margin:0 0 18px;font-size:34px;line-height:1.08;letter-spacing:-.03em}
-    .contact-panel-intro{margin:0 0 18px;font-size:17px;color:#434343}
-    .contact-purpose-list{margin:0;padding-left:22px;color:#2a2a2a;font-weight:700;font-size:17px}
-    .contact-purpose-list li+li{margin-top:12px}
-    .contact-form{display:grid;gap:18px}
-    .form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-    .contact-form label{display:grid;gap:8px;font-weight:700}
-    .contact-form label span{font-size:14px;color:#2a2a2a}
-    .contact-form input,.contact-form select,.contact-form textarea{width:100%;display:block;border:1px solid #d8ebf0;border-radius:16px;background:#fff;color:#2a2a2a;padding:14px 16px;font:inherit;box-sizing:border-box;-webkit-appearance:none;appearance:none}
-    .contact-form input,.contact-form select{min-height:54px}
-    .contact-form textarea{resize:vertical;min-height:190px}
+    .contact-hero-grid{grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+    .contact-copy{max-width:620px}
+    .contact-copy h1{font-size:clamp(48px,5vw,76px);line-height:.94;letter-spacing:-.055em;margin-bottom:24px}
+    .contact-copy .page-lead{max-width:620px;font-size:20px;line-height:1.55;color:#333;margin-bottom:28px}
+    .contact-actions .btn{font-size:16px;padding:15px 24px}
+    .contact-hero-card{display:flex;justify-content:center;align-items:center;min-height:380px;padding:38px}
+    .contact-hero-card img{max-height:340px;width:auto;object-fit:contain}
+    .contact-section{padding-top:34px}
+    .contact-layout{display:grid;grid-template-columns:.92fr 1.08fr;gap:32px;align-items:stretch}
+    .contact-panel,.contact-form-wrap{background:#fff;border:1px solid #d8ebf0;border-radius:30px;box-shadow:0 18px 44px rgba(42,42,42,.08);min-height:560px}
+    .contact-panel{padding:42px;display:flex;flex-direction:column;justify-content:space-between;gap:34px}
+    .contact-form-wrap{padding:42px}
+    .contact-panel h3{margin:0 0 20px;font-size:40px;line-height:1.04;letter-spacing:-.04em}
+    .contact-panel-intro{margin:0 0 26px;font-size:19px;line-height:1.55;color:#3c3c3c}
+    .contact-purpose-list{display:grid;gap:14px;margin:0;padding:0;list-style:none;color:#2a2a2a;font-weight:800;font-size:18px;line-height:1.35}
+    .contact-purpose-list li{position:relative;padding-left:28px}
+    .contact-purpose-list li:before{content:"";position:absolute;left:0;top:.55em;width:9px;height:9px;border-radius:50%;background:#2a2a2a}
+    .contact-panel-note{margin:0;padding:22px 24px;border-radius:22px;background:#f4fbfd;border:1px solid #d8ebf0;color:#333;font-size:17px;line-height:1.5;font-weight:650}
+    .contact-form{display:grid;gap:22px}
+    .form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+    .contact-form label{display:grid;gap:10px;font-weight:800}
+    .contact-form label span{font-size:16px;color:#202020;letter-spacing:-.01em}
+    .contact-form input,.contact-form select,.contact-form textarea{width:100%;display:block;border:1px solid #cfe5eb;border-radius:18px;background:#fff;color:#202020;padding:16px 18px;font-size:18px;line-height:1.25;box-sizing:border-box;-webkit-appearance:none;appearance:none;outline:none}
+    .contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{border-color:#8fc7d4;box-shadow:0 0 0 4px rgba(143,199,212,.18)}
+    .contact-form input,.contact-form select{min-height:62px}
+    .contact-form textarea{resize:vertical;min-height:210px}
     .full-width{grid-column:1 / -1}
-    .contact-form-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:6px}
-    .form-note{margin:0;color:#0d8b60;font-size:16px;font-weight:800;background:#eaf9f2;border:1px solid #bfe8d5;border-radius:14px;padding:10px 14px}
+    .contact-form-actions{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;margin-top:4px}
+    .contact-form-actions .btn{font-size:16px;padding:16px 26px;min-width:170px;text-align:center}
+    .form-helper{margin:0;color:#4a4a4a;font-size:16px;line-height:1.4;font-weight:650}
+    .form-note{display:none;margin:0;color:#0d8b60;font-size:16px;font-weight:850;background:#eaf9f2;border:1px solid #bfe8d5;border-radius:16px;padding:12px 16px}
+    .form-note.is-visible{display:block}
     @media (max-width:1024px){
       .contact-hero-grid,.contact-layout{grid-template-columns:1fr}
       .contact-copy{max-width:none}
       .contact-panel,.contact-form-wrap{min-height:auto}
+      .contact-panel{padding:34px}
+      .contact-form-wrap{padding:34px}
     }
     @media (max-width:760px){
+      .contact-copy h1{font-size:44px}
       .form-grid{grid-template-columns:1fr}
-      .contact-panel h3{font-size:30px}
+      .contact-panel h3{font-size:34px}
+      .contact-form-actions{grid-template-columns:1fr}
+      .contact-form-actions .btn{width:100%}
     }
   </style>
 </head>
@@ -66,7 +80,7 @@
       <div class="contact-copy">
         <p class="eyebrow">STRATEGIC CONVERSATIONS</p>
         <h1>Open to investor and partnership discussions</h1>
-        <p class="page-lead">We are open to conversations with investors, strategic partners, retail and distribution contacts, and manufacturing stakeholders. The website keeps this section general by design, while detailed information and supporting materials are shared upon request when the discussion is relevant.</p>
+        <p class="page-lead">We are open to conversations with investors, strategic partners, retail and distribution contacts, and manufacturing stakeholders. Detailed information and supporting materials are shared upon request when the discussion is relevant.</p>
         <div class="contact-actions"><a class="btn btn-secondary" href="mailto:vm@neo-icecream.com">vm@neo-icecream.com</a></div>
       </div>
       <div class="page-hero-card contact-hero-card">
@@ -75,12 +89,12 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section contact-section">
     <div class="container contact-layout">
       <aside class="contact-panel">
         <div>
-          <h3>Who should use this page</h3>
-          <p class="contact-panel-intro">This page is intended for business conversations and serious project-related inquiries.</p>
+          <h3>Business inquiry focus</h3>
+          <p class="contact-panel-intro">Use this form for serious project-related inquiries. Please include your role, company, and the reason for reaching out so we can respond with the right information.</p>
           <ul class="contact-purpose-list">
             <li>Investor inquiries</li>
             <li>Retail or distribution conversations</li>
@@ -88,6 +102,7 @@
             <li>General business inquiries</li>
           </ul>
         </div>
+        <p class="contact-panel-note">We review each inquiry and respond by email when the request is relevant to the project.</p>
       </aside>
 
       <div class="contact-form-wrap">
@@ -124,7 +139,8 @@
           </label>
           <div class="contact-form-actions">
             <button class="btn btn-primary" type="submit">Submit inquiry</button>
-            <p id="form-note" class="form-note">We will review your message and reply by email.</p>
+            <p id="form-helper" class="form-helper">We will review your message and reply by email.</p>
+            <p id="form-note" class="form-note" aria-live="polite"></p>
           </div>
         </form>
         <iframe name="hidden-form-target" style="display:none;"></iframe>
@@ -136,9 +152,12 @@
 <script>
   (function(){
     const form = document.getElementById('neo-contact-form');
+    const helper = document.getElementById('form-helper');
     const note = document.getElementById('form-note');
     if (!form || !note) return;
     form.addEventListener('submit', function(){
+      if (helper) helper.style.display = 'none';
+      note.classList.add('is-visible');
       note.textContent = 'Sending your inquiry...';
       setTimeout(function(){
         note.textContent = 'Thank you. Your inquiry has been submitted.';
