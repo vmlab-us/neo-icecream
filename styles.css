@@ -29,9 +29,8 @@ img{max-width:100%;display:block}
   border-bottom:1px solid var(--line);
 }
 .header-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:90px}
-.brand{display:flex;align-items:center;gap:0;min-width:0}
-.brand-mark{display:none}
-.brand-wordmark{height:64px;width:auto;object-fit:contain;display:block}
+.brand{display:block;min-width:0;width:360px;max-width:100%;height:92px;background:url('assets/logo/NEOICECREAM_horizontal_logo_black_transparent.png?v=20260521-7') no-repeat left center / contain}
+.brand-mark,.brand-wordmark,.footer-wordmark{display:none !important}
 .main-nav{display:flex;align-items:center;gap:24px;font-weight:700;font-size:15px}
 .nav-cta{padding:12px 18px;border-radius:999px;background:var(--text);color:#fff}
 .hero{padding:84px 0 72px}
@@ -73,9 +72,9 @@ h3{font-size:22px}
 .cta-band .eyebrow,.cta-band p{color:rgba(255,255,255,.82)}
 .site-footer{padding:48px 0;background:#111;color:#fff}
 .footer-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:28px}
+.footer-grid>div:first-child::before{content:'';display:block;width:360px;max-width:100%;height:92px;margin-bottom:12px;background:url('assets/logo/NEOICECREAM_horizontal_logo_white_transparent.png?v=20260521-7') no-repeat left center / contain}
 .footer-grid h3{font-size:15px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
 .footer-grid a{display:block;color:rgba(255,255,255,.84);margin:8px 0}
-.footer-wordmark{height:64px;width:auto;margin-bottom:12px;display:block}
 .page-hero{padding:72px 0 48px}
 .page-hero-card{background:var(--surface);border:1px solid var(--line);border-radius:32px;padding:26px;box-shadow:var(--shadow)}
 .page-hero-card img{max-height:520px;object-fit:contain;margin:0 auto}
@@ -118,7 +117,7 @@ h3{font-size:22px}
 @media (max-width: 760px){
   .main-nav{display:none}
   .header-inner{min-height:82px}
-  .brand-wordmark{height:52px}
+  .brand{width:300px;height:76px}
   .hero{padding:56px 0 52px}
   .intro-grid,.flavor-grid,.form-grid{grid-template-columns:1fr}
   .flavor-list-card{grid-template-columns:1fr}
@@ -128,11 +127,12 @@ h3{font-size:22px}
   .hero-card-back{top:0;right:0}
   .hero-card-front{left:0;bottom:0}
   .single-hero-image{max-width:340px;max-height:460px}
-  .footer-wordmark{height:56px}
+  .footer-grid>div:first-child::before{width:300px;height:76px}
 }
 @media (max-width: 520px){
   .container{width:min(100% - 28px,1160px)}
   .info-card,.flavor-card,.faq-item,.contact-panel,.stat-card,.mini-tile,.flavor-list-card,.contact-form-wrap{padding:20px}
   .form-note{width:100%}
-  .brand-wordmark{height:46px}
+  .brand{width:260px;height:66px}
+  .footer-grid>div:first-child::before{width:260px;height:66px}
 }
