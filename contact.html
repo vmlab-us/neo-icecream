@@ -12,7 +12,7 @@
   </script>
   <title>NEOICECREAM | Strategic Conversations</title>
   <meta name="description" content="Contact NEOICECREAM for investor, strategic partner, retail, distribution, or manufacturing conversations.">
-  <link rel="stylesheet" href="styles.css?v=20260520-1">
+  <link rel="stylesheet" href="styles.css?v=20260521-2">
 </head>
 <body>
 <header class="site-header">
@@ -23,34 +23,88 @@
 </header>
 <main>
   <section class="page-hero">
-    <div class="container page-hero-grid">
+    <div class="container page-hero-grid contact-hero-grid">
       <div class="contact-copy">
         <p class="eyebrow">STRATEGIC CONVERSATIONS</p>
         <h1>Open to investor and partnership discussions</h1>
-        <p class="page-lead">The website keeps this section general by design. Detailed information is available upon request.</p>
+        <p class="page-lead">This section stays general on purpose. Detailed information is available upon request.</p>
         <div class="contact-actions"><a class="btn btn-secondary" href="mailto:vm@neo-icecream.com">vm@neo-icecream.com</a></div>
       </div>
-      <div class="page-hero-card"><img src="assets/products/pistachio.png" alt="Pistachio NEOICECREAM frozen dessert bar"></div>
+      <div class="page-hero-card contact-hero-card">
+        <img src="assets/products/pistachio.png" alt="Pistachio NEOICECREAM frozen dessert bar">
+      </div>
     </div>
   </section>
+
   <section class="section">
     <div class="container contact-layout">
       <aside class="contact-panel">
         <h3>Use this page for</h3>
-        <div class="contact-links">
-          <a>Investor inquiries</a>
-          <a>Retail or distribution conversations</a>
-          <a>Manufacturing or strategic partner outreach</a>
-          <a>General business inquiries</a>
-        </div>
+        <ul class="contact-purpose-list">
+          <li>Investor inquiries</li>
+          <li>Retail or distribution conversations</li>
+          <li>Manufacturing or strategic partner outreach</li>
+          <li>General business inquiries</li>
+        </ul>
         <div class="notice">No phone number is published on the site. Contact is handled by email and inquiry form.</div>
       </aside>
-      <div class="form-frame-wrap">
-        <iframe class="form-frame" src="https://script.google.com/macros/s/AKfycbx9a3JlSL64wsv1XlyMzQETeETPt_DXs9AXeO7qMDhr3ejaPb50PKM6m3BYU3cdxsng/exec" title="NEOICECREAM inquiry form" loading="lazy"></iframe>
+
+      <div class="contact-form-wrap">
+        <form id="neo-contact-form" class="contact-form" action="https://script.google.com/macros/s/AKfycbx9a3JlSL64wsv1XlyMzQETeETPt_DXs9AXeO7qMDhr3ejaPb50PKM6m3BYU3cdxsng/exec" method="POST" target="hidden-form-target">
+          <div class="form-grid">
+            <label>
+              <span>Name *</span>
+              <input type="text" name="name" required>
+            </label>
+            <label>
+              <span>Email *</span>
+              <input type="email" name="email" required>
+            </label>
+            <label>
+              <span>Company</span>
+              <input type="text" name="company">
+            </label>
+            <label>
+              <span>Inquiry Type *</span>
+              <select name="inquiryType" required>
+                <option value="">Choose one</option>
+                <option value="Investor">Investor</option>
+                <option value="Strategic Partner">Strategic Partner</option>
+                <option value="Distributor">Distributor</option>
+                <option value="Retail Partner">Retail Partner</option>
+                <option value="Manufacturing">Manufacturing</option>
+                <option value="Other">Other</option>
+              </select>
+            </label>
+          </div>
+          <label class="full-width">
+            <span>Message *</span>
+            <textarea name="message" rows="7" required></textarea>
+          </label>
+          <div class="contact-form-actions">
+            <button class="btn btn-primary" type="submit">Submit inquiry</button>
+            <p id="form-note" class="form-note">We will review your message and reply by email.</p>
+          </div>
+        </form>
+        <iframe name="hidden-form-target" style="display:none;"></iframe>
       </div>
     </div>
   </section>
 </main>
 <footer class="site-footer"><div class="container footer-grid"><div><img class="footer-wordmark" src="assets/logo/neoicecream-wordmark.png" alt="NEOICECREAM wordmark"><p>Better-for-you frozen dessert with a primary bar format.</p></div><div><h3>Navigation</h3><a href="index.html">Home</a><a href="product.html">Product</a><a href="flavors.html">Flavors</a><a href="faq.html">FAQ</a></div><div><h3>Contact</h3><a href="mailto:vm@neo-icecream.com">vm@neo-icecream.com</a></div></div></footer>
+<script>
+  (function(){
+    const form = document.getElementById('neo-contact-form');
+    const note = document.getElementById('form-note');
+    if (!form || !note) return;
+    form.addEventListener('submit', function(){
+      note.textContent = 'Sending your inquiry...';
+      setTimeout(function(){
+        note.textContent = 'Thank you. Your inquiry has been submitted.';
+        form.reset();
+      }, 1200);
+    });
+  })();
+</script>
 </body>
 </html>
