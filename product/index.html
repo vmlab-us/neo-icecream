@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NEOICECREAM Product | Frozen Dessert</title>
+  <script>
+    fetch('/product.html')
+      .then(function(response){ return response.text(); })
+      .then(function(html){
+        html = html
+          .replace(/href="styles\.css/g, 'href="/styles.css')
+          .replace(/src="assets\//g, 'src="/assets/')
+          .replace(/href="assets\//g, 'href="/assets/')
+          .replace(/href="index\.html"/g, 'href="/"')
+          .replace(/href="product\.html"/g, 'href="/product/"')
+          .replace(/href="flavors\.html"/g, 'href="/flavors/"')
+          .replace(/href="faq\.html"/g, 'href="/faq/"')
+          .replace(/href="contact\.html"/g, 'href="/contact/"');
+        document.open();
+        document.write(html);
+        document.close();
+      });
+  </script>
+</head>
+<body></body>
+</html>
