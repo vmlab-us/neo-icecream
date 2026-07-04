@@ -108,8 +108,23 @@ h3{font-size:22px}
 .full-width{grid-column:1/-1}
 .form-note{margin:0;align-self:center}
 .notice{background:var(--surface-soft);border:1px solid var(--line);border-radius:18px;padding:18px;font-size:15px;color:var(--muted);margin-top:18px}
+.seo-copy{max-width:900px;margin:0 auto;color:var(--muted);font-size:18px}
+.seo-copy p{margin:0 0 18px}
+.seo-copy p:last-child{margin-bottom:0}
+.insights-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.insight-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px}
+.insight-card p{margin:0;color:var(--muted)}
+.insight-meta{font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:800;color:var(--muted)}
+.article-shell{max-width:860px;margin:0 auto}
+.article-shell h2{margin-top:44px}
+.article-shell p,.article-shell li{font-size:18px;color:var(--muted)}
+.article-shell a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;font-weight:750}
+.article-note{background:var(--surface-soft);border:1px solid var(--line);border-radius:22px;padding:22px;margin:28px 0;color:var(--muted)}
+.article-note p{margin:0}
+.reference-list{padding-left:20px;color:var(--muted)}
+.reference-list li+li{margin-top:10px}
 @media (max-width: 1024px){
-  .hero-grid,.split-section,.cta-grid,.page-hero-grid,.contact-layout,.content-grid-2,.tiles-3,.footer-grid,.flavor-list-grid{grid-template-columns:1fr}
+  .hero-grid,.split-section,.cta-grid,.page-hero-grid,.contact-layout,.content-grid-2,.tiles-3,.footer-grid,.flavor-list-grid,.insights-grid{grid-template-columns:1fr}
   .intro-grid,.flavor-grid{grid-template-columns:repeat(2,1fr)}
   .stack-cards,.compact-stack{min-height:460px}
   .page-hero-card img{max-height:420px}
@@ -131,7 +146,7 @@ h3{font-size:22px}
 }
 @media (max-width: 520px){
   .container{width:min(100% - 28px,1160px)}
-  .info-card,.flavor-card,.faq-item,.contact-panel,.stat-card,.mini-tile,.flavor-list-card,.contact-form-wrap{padding:20px}
+  .info-card,.flavor-card,.faq-item,.contact-panel,.stat-card,.mini-tile,.flavor-list-card,.contact-form-wrap,.insight-card{padding:20px}
   .form-note{width:100%}
   .brand{width:260px;height:66px}
   .footer-grid>div:first-child::before{width:260px;height:66px}
