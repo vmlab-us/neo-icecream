@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://neo-icecream.com/sitemap.xml
+Sitemap: https://neo-icecream.com/insights-sitemap.xml
