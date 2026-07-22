@@ -121,6 +121,11 @@ h3{font-size:22px}
 .article-shell a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;font-weight:750}
 .article-note{background:var(--surface-soft);border:1px solid var(--line);border-radius:22px;padding:22px;margin:28px 0;color:var(--muted)}
 .article-note p{margin:0}
+.article-note h2{font-size:24px;margin:0 0 12px}
+.article-byline{font-size:14px;color:var(--muted);margin-top:20px}
+.article-intro{font-size:21px !important;color:var(--text) !important}
+.related-articles ul{padding-left:20px}
+.related-articles li+li{margin-top:10px}
 .reference-list{padding-left:20px;color:var(--muted)}
 .reference-list li+li{margin-top:10px}
 @media (max-width: 1024px){
