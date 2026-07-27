@@ -27,6 +27,12 @@ for (const file of publicHtmlFiles) {
     const target=href.endsWith('/') ? path.join(root,href,'index.html') : path.join(root,href);
     if(!fs.existsSync(target)) failures.push(`${rel}: broken internal link ${href}`);
   }
+  for(const match of html.matchAll(/<img\b[^>]*\bsrc="([^"]+)"/gi)) {
+    const src=match[1].split(/[?#]/)[0];
+    if(!src || /^(?:https?:)?\/\//i.test(src) || src.startsWith('data:')) continue;
+    const target=src.startsWith('/') ? path.join(root,src) : path.resolve(path.dirname(file),src);
+    if(!fs.existsSync(target)) failures.push(`${rel}: missing local image ${src}`);
+  }
 }
 const prohibited=['improves gut health','boosts immunity','supports digestion','treats digestion','clinically proven probiotic benefits','guaranteed probiotic benefits','guaranteed CFU','improves microbiome','supports immune system','digestive health benefits'];
 for(const file of publicHtmlFiles){const lower=fs.readFileSync(file,'utf8').toLowerCase();for(const claim of prohibited) if(lower.includes(claim.toLowerCase())) failures.push(`${path.relative(root,file)}: prohibited claim "${claim}"`);}
