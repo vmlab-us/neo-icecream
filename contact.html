@@ -49,6 +49,7 @@
     .form-helper{margin:0;color:#4a4a4a;font-size:16px;line-height:1.4;font-weight:650}
     .form-note{display:none;margin:0;color:#0d8b60;font-size:16px;font-weight:850;background:#eaf9f2;border:1px solid #bfe8d5;border-radius:16px;padding:12px 16px}
     .form-note.is-visible{display:block}
+    .form-honeypot{position:absolute!important;left:-10000px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important}
     @media (max-width:1024px){
       .contact-hero-grid,.contact-layout{grid-template-columns:1fr}
       .contact-copy{max-width:none}
@@ -106,7 +107,9 @@
       </aside>
 
       <div class="contact-form-wrap">
-        <form id="neo-contact-form" class="contact-form" action="https://script.google.com/macros/s/AKfycbx9a3JlSL64wsv1XlyMzQETeETPt_DXs9AXeO7qMDhr3ejaPb50PKM6m3BYU3cdxsng/exec" method="POST" target="hidden-form-target">
+        <form id="neo-contact-form" class="contact-form" method="POST" target="hidden-form-target">
+          <div class="form-honeypot" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <input type="hidden" name="startedAt" value="">
           <div class="form-grid">
             <label>
               <span>Name *</span>
@@ -154,14 +157,39 @@
     const form = document.getElementById('neo-contact-form');
     const helper = document.getElementById('form-helper');
     const note = document.getElementById('form-note');
+    const button = form && form.querySelector('button[type="submit"]');
+    const honeypot = form && form.elements.website;
+    const startedAtField = form && form.elements.startedAt;
+    const endpoint = ['https://script.google.com/macros/s/','AKfycbx9a3JlSL64wsv1XlyMzQETeETPt_DXs9AXeO7qMDhr3ejaPb50PKM6m3BYU3cdxsng','/exec'].join('');
+    let startedAt = Date.now();
+    let submitting = false;
     if (!form || !note) return;
-    form.addEventListener('submit', function(){
+    if (startedAtField) startedAtField.value = String(startedAt);
+    form.addEventListener('submit', function(event){
+      if (submitting) { event.preventDefault(); return; }
+      if ((honeypot && honeypot.value) || Date.now() - startedAt < 3000) {
+        event.preventDefault();
+        if (helper) helper.style.display = 'none';
+        note.classList.add('is-visible');
+        note.textContent = 'Thank you. Your inquiry has been submitted.';
+        form.reset();
+        startedAt = Date.now();
+        if (startedAtField) startedAtField.value = String(startedAt);
+        return;
+      }
+      submitting = true;
+      form.action = endpoint;
+      if (button) button.disabled = true;
       if (helper) helper.style.display = 'none';
       note.classList.add('is-visible');
       note.textContent = 'Sending your inquiry...';
       setTimeout(function(){
         note.textContent = 'Thank you. Your inquiry has been submitted.';
         form.reset();
+        startedAt = Date.now();
+        if (startedAtField) startedAtField.value = String(startedAt);
+        submitting = false;
+        if (button) button.disabled = false;
       }, 1200);
     });
   })();
